@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Community Feed</h1>
+<p>All verified work from our community.</p>
+<div class="card-grid">
+    {% for c in contributions %}
+    <div class="card">
+        {% if c.photo %}<img src="{{ c.photo.url }}" style="width:100%; border-radius:8px; margin-bottom:10px;">{% endif %}
+        <span class="badge badge-Confirmed">Verified ✅</span>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.description }}</p>
+        <p><a href="{% url 'profile' c.user.username %}"><b>{{ c.user.username }}</b></a> • {{ c.category }} • {{ c.hours }} hrs</p>
+        <p>📍 {{ c.location }} • {{ c.date }}</p>
+    </div>
+    {% empty %}<p>No verified contributions yet.</p>{% endfor %}
+</div>
+{% endblock %}

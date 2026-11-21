@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hi, {{ user.username }} 👋</h1>
+<div class="stats">
+    <div class="stat"><h2>{{ total_hours }}</h2><p>Confirmed Hours</p></div>
+    <div class="stat"><h2>{{ my.count }}</h2><p>Total Contributions</p></div>
+</div>
+<a href="{% url 'add_contribution' %}" class="btn">+ Add New Contribution</a>
+<a href="{% url 'profile' user.username %}" class="btn btn-outline">View My Profile</a>
+
+<h2 style="margin-top:25px;">My Contributions</h2>
+<div class="card-grid">
+    {% for c in my %}
+    <div class="card">
+        <span class="badge badge-{{ c.status }}">{{ c.status }}</span>
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.description|truncatewords:15 }}</p>
+        <p>{{ c.category }} • {{ c.hours }} hrs • {{ c.date }}</p>
+        <p>📍 {{ c.location }}</p>
+    </div>
+    {% empty %}
+    <p>You haven't added anything yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}

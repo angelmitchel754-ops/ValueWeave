@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="profile-head">
+    {% if profile_user.profile.photo %}
+        <img src="{{ profile_user.profile.photo.url }}">
+    {% else %}
+        <img src="https://via.placeholder.com/90">
+    {% endif %}
+    <div>
+        <h1>{{ profile_user.username }}</h1>
+        <p>{{ profile_user.profile.location }} • {{ profile_user.profile.bio }}</p>
+        <p><b>{{ profile_user.profile.total_contributions }}</b> verified contributions • <b>{{ profile_user.profile.total_hours }}</b> hours</p>
+    </div>
+</div>
+
+<h2 style="margin-top:25px;">Verified Work</h2>
+<div class="card-grid">
+    {% for c in contributions %}
+    <div class="card">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.description }}</p>
+        <p>{{ c.category }} • {{ c.hours }} hrs • {{ c.date }}</p>
+    </div>
+    {% empty %}<p>No verified work yet.</p>{% endfor %}
+</div>
+{% endblock %}

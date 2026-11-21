@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ValueWeave - Community Contributions</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<nav>
+    <a href="{% url 'home' %}" class="logo">🌱 ValueWeave</a>
+    <div class="links">
+        <a href="{% url 'feed' %}">Community Feed</a>
+        <a href="{% url 'report' %}">Impact Report</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'coordinator_panel' %}">Coordinator</a>
+            <a href="{% url 'profile' user.username %}">{{ user.username }}</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}" class="btn-nav">Join Free</a>
+        {% endif %}
+    </div>
+</nav>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+<footer>ValueWeave © 2026 - Recognizing work that matters</footer>
+</body>
+</html>

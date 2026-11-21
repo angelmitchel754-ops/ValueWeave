@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Coordinator Panel</h1>
+<p>Approve or reject pending contributions.</p>
+<div class="card-grid">
+    {% for c in pending %}
+    <div class="card">
+        <h3>{{ c.title }}</h3>
+        <p>{{ c.description }}</p>
+        <p>By <b>{{ c.user.username }}</b> • {{ c.category }} • {{ c.hours }} hrs</p>
+        <p>📍 {{ c.location }} • {{ c.date }}</p>
+        <br>
+        <a href="{% url 'confirm' c.id %}" class="btn btn-small">✅ Confirm</a>
+        <a href="{% url 'reject' c.id %}" class="btn btn-small btn-danger">❌ Reject</a>
+    </div>
+    {% empty %}<p>No pending contributions. All clear!</p>{% endfor %}
+</div>
+{% endblock %}

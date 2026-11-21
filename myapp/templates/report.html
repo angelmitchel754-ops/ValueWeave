@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="hero">
+    <h1>Community Impact Report</h1>
+    <p>Real work, real people, real impact.</p>
+</div>
+<div class="stats">
+    <div class="stat"><h2>{{ total }}</h2><p>Verified Contributions</p></div>
+    <div class="stat"><h2>{{ total_hours }}</h2><p>Total Hours Volunteered</p></div>
+</div>
+<div class="card">
+    <h3>Summary</h3>
+    <p>Our community has completed <b>{{ total }}</b> verified contributions, totaling <b>{{ total_hours }} hours</b> of positive impact.</p>
+    <p>This report proves that value is not only measured in money or certificates, but in service to others.</p>
+    <br>
+    <button onclick="window.print()" class="btn">🖨️ Print / Save as PDF</button>
+</div>
+{% endblock %}
