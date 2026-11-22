@@ -16,4 +16,5 @@ urlpatterns = [
     path('coordinator/', views.coordinator, name='coordinator_panel'),
     path('confirm/<int:pk>/', views.approve, name='confirm'),
     path('reject/<int:pk>/', views.reject, name='reject'),
+    path('contribute/', views.contribute, name='contribute'),
 ]

@@ -86,3 +86,9 @@ def reject(request, pk):
         c.status = 'Rejected'
         c.save()
     return redirect('coordinator_panel')
+
+def contribute(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        return render(request, 'myapp/thankyou.html', {'name': name})
+    return render(request, 'myapp/contribute.html')

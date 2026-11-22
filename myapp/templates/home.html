@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
+<div style="text-align: center;">
+    <img src="{% static 'myapp/logo.webp' %}" alt="ValueWeave Logo" style="width: 180px;">
+    <h1>Volunteer. Contribute. Create Value.</h1>
+    <p>Join the community making a real impact.</p>
+    <img src="{% static 'myapp/valueweave.webp' %}" alt="ValueWeave Volunteers" style="width: 20%; height: auto; object-fit: contain; background: white; border-radius: 12px;">
+
+</div>
 <div class="hero">
     <h1>Your Good Work Deserves To Be Seen</h1>
     <p>ValueWeave records your community contributions, verifies them, and builds your community profile.</p>
@@ -7,7 +16,7 @@
     <a href="{% url 'register' %}" class="btn">Get Started Free</a>
     <a href="{% url 'feed' %}" class="btn btn-outline">See Community Feed</a>
     {% else %}
-    <a href="{% url 'add_contribution' %}" class="btn">+ Add Contribution</a>
+    <a href="{/contribute/}" class="btn">+ Contribute</a>
     {% endif %}
 </div>
 
