@@ -117,7 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'STATIC']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 # Email
@@ -136,3 +136,5 @@ ALLOWED_HOSTS = ['*']
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'home'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT= BASE_DIR / 'staticfiles'
